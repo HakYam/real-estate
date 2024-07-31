@@ -1,4 +1,38 @@
-node_modules
+# See https://nextjs.org/docs/app/building-your-application/deploying/
 
-.env
-.env*.local
+# Next.js Build Output
+next-build/
+out/
+.next/
+
+# Node Modules
+node_modules/
+
+# Logs
+logs/
+
+# Runtime data
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Optional:
+
+# Debug files
+*.log
+*.pid
+
+# IDE-specific files
+.idea/
+.vscode/
+
+# Mac-specific files
+.DS_Store
+
+# Windows-specific files
+Thumbs.db
+
+# Other
+.eslintrc.js
+.prettierrc.js
