@@ -1,4 +1,7 @@
 {
+  "/_not-found/page": "app/_not-found/page.js",
+  "/properties/add/page": "app/properties/add/page.js",
+  "/properties/[id]/page": "app/properties/[id]/page.js",
   "/page": "app/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js"
 }

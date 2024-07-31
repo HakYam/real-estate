@@ -1,5 +1,7 @@
 import React from 'react'
 import '@/assets/styles/globals.css'
+import Navbar from '@/components/Navbar'
+
 
 export const metadata = {
   title: 'Property Hub',
@@ -12,6 +14,7 @@ const MainLayout = ({children}) => {
     <html>
     <body>
         <main>
+        <Navbar/>
            {children}
         </main>
     </body>
