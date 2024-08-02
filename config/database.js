@@ -1,5 +1,5 @@
 import mongoose, { connect } from "mongoose";
-import { cookies } from "next/headers";
+
 
 let connected = false;
 
