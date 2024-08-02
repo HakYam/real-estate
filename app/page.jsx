@@ -1,16 +1,13 @@
-'use client'
+
 import React from 'react'
-import Link from 'next/link'
-import { useRouter } from 'next/navigation'
 import Hero from '@/components/Hero'
 import InfoBoxes from '@/components/InfoBoxes'
 import HomeProperties from '@/components/HomeProperties'
 
-const Homepage = () => {
-    
-    const router = useRouter();
+import connectDB from '@/config/database'
 
-    
+const HomePage = () => {
+connectDB()
 
   return (
     <>
@@ -21,5 +18,5 @@ const Homepage = () => {
   )
 }
 
-export default Homepage
+export default HomePage
 
