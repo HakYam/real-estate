@@ -2,25 +2,24 @@
 import React from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+import Hero from '@/components/Hero'
+import InfoBoxes from '@/components/InfoBoxes'
+import HomeProperties from '@/components/HomeProperties'
 
 const Homepage = () => {
-    console.log('hi server component');
+    
     const router = useRouter();
 
-    console.log(router)
+    
 
   return (
     <>
-    <div className='text-4xl '>page</div>
-    <Link href={{
-        pathname : 'properties',
-        query : {id:'100'}
-    }}>go to prop page</Link>
-    <button onClick={ ()=> router.prefetch('/') } >
-        go to home page by route
-    </button>
+    <Hero/>
+    <InfoBoxes />
+    <HomeProperties />
     </>
   )
 }
 
 export default Homepage
+
