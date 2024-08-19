@@ -2,7 +2,7 @@ import React from 'react'
 import '@/assets/styles/globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-
+import AuthProvider from '@/components/AuthProvider'
 
 export const metadata = {
   title: 'Property Hub',
@@ -12,6 +12,7 @@ export const metadata = {
 
 const MainLayout = ({children}) => {
   return (
+    <AuthProvider>
     <html>
     <body>
         <main>
@@ -21,6 +22,7 @@ const MainLayout = ({children}) => {
         <Footer />
     </body>
     </html>
+    </AuthProvider>
   )
 }
 
