@@ -1,4 +1,7 @@
 {
-  "/page": "app/page.js",
+  "/properties/add/page": "app/properties/add/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
+  "/_not-found/page": "app/_not-found/page.js",
   "/properties/[id]/page": "app/properties/[id]/page.js"
 }

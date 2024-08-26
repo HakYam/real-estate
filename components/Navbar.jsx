@@ -1,5 +1,5 @@
 'use client'
-import { useState , useEffect} from 'react'
+import { useState, useEffect } from 'react'
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -8,16 +8,17 @@ import { usePathname } from 'next/navigation'
 import { signIn, signOut, useSession, getProviders } from 'next-auth/react'
 
 function Navbar() {
-  const  {data : session} = useSession;
-  console.log(session)
+  const { data: session } = useSession();
+
+ 
   const [isMobileMenuOpen, setMobilMenuOpen] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [providers, setProviders] = useState(null)
 
 
   const pathname = usePathname()
-  useEffect (() => {
-    const setAuthProviders = async ()=> {
+  useEffect(() => {
+    const setAuthProviders = async () => {
       const res = await getProviders();
       setProviders(res)
     }
@@ -63,7 +64,7 @@ function Navbar() {
             >
               {/* <!-- Logo --> */}
               <Link className="flex flex-shrink-0 items-center" href="/">
-                <FaHome className='text-blue-700 text-4xl mr-2 bg-white rounded-full p-1'/>
+                <FaHome className='text-blue-700 text-4xl mr-2 bg-white rounded-full p-1' />
 
                 <span className="hidden md:block text-white text-2xl font-bold ml-2 "
                 >Property Hub</span
@@ -86,7 +87,7 @@ function Navbar() {
                   {session && <Link
                     href="/properties/add"
                     className={` ${pathname === '/properties/add' ? 'bg-black' : ''} text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2`}
-                  >Add Property</Link> }
+                  >Add Property</Link>}
                 </div>
               </div>
             </div>
@@ -94,16 +95,16 @@ function Navbar() {
             {/* <!-- Right Side Menu (Logged Out) --> */}
             {!session && <div className="hidden md:block md:ml-6">
               <div className="flex items-center">
-              {providers && Object.values(providers).map((provider, index) => ( 
-                <button key={index}
-                onClick={()=> signIn(provider.id)}
-                  className="flex items-center text-white bg-gray-700 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
-                >
-                  <FaGoogle className='text-white mr-3' />
-                  <span className='pt-1'>Login or Register</span>
-                </button>
+                {providers && Object.values(providers).map((provider, index) => (
+                  <button key={index}
+                    onClick={() => signIn(provider.id)}
+                    className="flex items-center text-white bg-gray-700 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
+                  >
+                    <FaGoogle className='text-white mr-3' />
+                    <span className='pt-1'>Login or Register</span>
+                  </button>
 
-              ))}
+                ))}
 
               </div>
             </div>}
@@ -156,7 +157,7 @@ function Navbar() {
                     <span className="sr-only">Open user menu</span>
                     <Image
                       className="h-8 w-8 rounded-full"
-                      src="/images/profile.svg"
+                      src={session?.user?.image || "/images/profile.svg"}
                       alt=""
                       width={1}
                       height={1}
@@ -193,6 +194,10 @@ function Navbar() {
                     role="menuitem"
                     tabIndex="-1"
                     id="user-menu-item-2"
+                    onClick={() => {
+                      setIsProfileOpen(false);
+                      signOut();
+                    }}
                   >
                     Sign Out
                   </button>
@@ -217,18 +222,24 @@ function Navbar() {
               href="/properties/add"
               className={`${pathname === '/properties/add' ? 'bg-black' : ''} text-white block rounded-md px-3 py-2 text-base font-medium`}
             >Add Property </Link>}
-            {!session && <button
-              className="flex items-center text-white bg-gray-700 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2 my-5"
-            >
-              <i className="fa-brands fa-google mr-2"></i>
-              <FaGoogle className='text-white mr-3' />
-              <span className='pt-1'>Login or Register</span>
-            </button>}
+          {!session && providers && Object.values(providers).map((provider, index) => (
+                <button
+                  key={index}
+                  onClick={() => signIn(provider.id)}
+                  className="flex items-center text-white bg-gray-700 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2 w-full mt-2"
+                >
+                  <FaGoogle className='text-white mr-3' />
+                  <span className='pt-1'>Login or Register</span>
+                </button>
+              ))}
+            </div>
           </div>
-        </div>}
+        }
       </nav>
     </>
   )
 }
 
 export default Navbar
+
+    

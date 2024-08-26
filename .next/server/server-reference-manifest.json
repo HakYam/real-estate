@@ -1,5 +1,14 @@
 {
-  "node": {},
+  "node": {
+    "3ad0017a981c70829e1828063079f92fdbf27b72": {
+      "workers": {
+        "app/properties/add/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fali%2FDesktop%2FRealState%2Fapp%2Factions%2FaddProperty.js%22%2C%5B%22default%22%5D%5D%5D&__client_imported__=!"
+      },
+      "layer": {
+        "app/properties/add/page": "rsc"
+      }
+    }
+  },
   "edge": {},
-  "encryptionKey": "FOaxCKgpGnWKp1/XBqeZ1JU+2tOdZE6kcNl6dGtpfK8="
+  "encryptionKey": "yssAzN4J2KIoQHPIezSyNkTlpAV956QnY8iRNMKZogI="
 }
